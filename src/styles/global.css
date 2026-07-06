@@ -1,14 +1,20 @@
 :root {
-  --parchment: #f3ead8;
-  --parchment-deep: #e8dcc2;
+  --parchment: #f0e6cf;
+  --parchment-deep: #e6d8b8;
+  --parchment-card: #f7efdd;
   --ink: #2e2a20;
   --olive: #4a5d33;
   --olive-dark: #37461f;
   --gold: #a8853b;
+  --gold-bright: #c9a44d;
   --bronze: #7a5a2e;
   --charcoal: #1d1a14;
+  --charcoal-soft: #2b251b;
   --amber: #c98a2d;
+  --amber-deep: #9a651a;
   --serif: Georgia, 'Times New Roman', serif;
+  /* Greek-key (meander) strip, gold on transparent */
+  --meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M1 13 V1 H13 V9 H6 V6 H9' fill='none' stroke='%23a8853b' stroke-width='1.6'/%3E%3C/svg%3E");
 }
 
 * {
@@ -17,10 +23,23 @@
 
 body {
   margin: 0;
-  background: var(--parchment);
   color: var(--ink);
   font-family: var(--serif);
-  line-height: 1.6;
+  line-height: 1.65;
+  /* aged parchment: warm base + soft mottling + edge vignette */
+  background-color: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(255, 250, 235, 0.55), transparent 55%),
+    radial-gradient(ellipse at 85% 80%, rgba(160, 125, 60, 0.12), transparent 60%),
+    radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(122, 90, 46, 0.16) 100%);
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: normal;
+  letter-spacing: 0.04em;
 }
 
 a {
@@ -28,15 +47,22 @@ a {
 }
 
 .container {
-  max-width: 60rem;
+  max-width: 62rem;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
 
-/* Header */
+.meander {
+  height: 14px;
+  background-image: var(--meander);
+  background-repeat: repeat-x;
+  opacity: 0.85;
+}
+
+/* ---------- Header ---------- */
 .site-header {
   border-bottom: 3px double var(--gold);
-  background: var(--parchment-deep);
+  background: linear-gradient(var(--parchment-deep), var(--parchment));
 }
 
 .site-header .container {
@@ -44,22 +70,27 @@ a {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.5rem 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
 }
 
 .brand {
-  font-size: 1.4rem;
-  font-weight: bold;
-  letter-spacing: 0.08em;
+  font-size: 1.45rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--olive-dark);
   text-decoration: none;
 }
 
+.brand::before {
+  content: '❦ ';
+  color: var(--gold);
+}
+
 .site-nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;
   gap: 1rem;
   margin-left: auto;
 }
@@ -67,13 +98,16 @@ a {
 .site-nav a {
   text-decoration: none;
   color: var(--ink);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
 }
 
 .site-nav a:hover,
 .site-nav a[aria-current='page'] {
   color: var(--olive-dark);
   text-decoration: underline;
-  text-underline-offset: 0.3em;
+  text-underline-offset: 0.35em;
+  text-decoration-color: var(--gold);
 }
 
 .lang-switch {
@@ -81,60 +115,84 @@ a {
   border-radius: 2px;
   padding: 0.15rem 0.6rem;
   font-size: 0.9rem;
+  background: var(--parchment-card);
 }
 
-/* Hero + sections */
+/* ---------- Hero & sections ---------- */
 .hero {
   padding: 3.5rem 0 2.5rem;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
   color: var(--olive-dark);
-  margin: 0 0 0.75rem;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hero .rule,
+.product-head .rule {
+  width: 7rem;
+  margin: 0 auto 1.25rem;
+  border: none;
+  border-top: 3px double var(--gold);
 }
 
 .hero p {
-  max-width: 40rem;
+  max-width: 42rem;
   margin: 0 auto;
+  font-size: 1.05rem;
 }
 
 .section-title {
   text-align: center;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--bronze);
-  font-size: 1.1rem;
-  margin: 2.5rem 0 1.5rem;
+  font-size: 1.05rem;
+  margin: 2.75rem 0 1.75rem;
 }
 
-/* Product cards */
+.section-title::before,
+.section-title::after {
+  content: ' ⸙ ';
+  color: var(--gold);
+}
+
+/* ---------- Product cards ---------- */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 1.25rem;
+  gap: 1.5rem;
   padding-bottom: 3rem;
 }
 
 .card {
   border: 1px solid var(--gold);
-  background: #faf5e9;
-  padding: 1.25rem;
+  outline: 1px solid rgba(168, 133, 59, 0.4);
+  outline-offset: 4px;
+  background: var(--parchment-card);
+  padding: 1.35rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.55rem;
   text-align: center;
+  box-shadow: 0 2px 10px rgba(46, 42, 32, 0.12);
 }
 
 .card h3 {
   margin: 0;
-  color: var(--olive-dark);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .card .card-region {
   font-size: 0.9rem;
   color: var(--bronze);
+  font-style: italic;
 }
 
 .card a {
@@ -142,48 +200,108 @@ a {
 }
 
 .card-art {
-  height: 8rem;
+  height: 9rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
-  border: 1px dashed var(--gold);
-  background: var(--parchment-deep);
+  font-size: 3rem;
+  border: 1px solid rgba(168, 133, 59, 0.5);
 }
 
-/* Product line accents */
-.line-crete {
-  border-top: 6px solid var(--olive);
+.card-art img {
+  max-height: 100%;
+  max-width: 100%;
 }
 
-.line-lakonia {
-  border-top: 6px solid var(--charcoal);
-}
-
-.line-honey {
-  border-top: 6px solid var(--amber);
-}
-
-/* Product page */
-.product-head {
-  text-align: center;
-  padding: 2.5rem 0 1rem;
-}
-
-.product-head h1 {
-  margin: 0 0 0.5rem;
+/* Line identities: Crete = olive on parchment, Lakonia = bronze on night,
+   honey = amber on warm gold. */
+.line-crete .card-art {
+  background: linear-gradient(160deg, #e9e2c8, #cfd3ae 70%, #b9c39a);
   color: var(--olive-dark);
 }
 
-.product-meta {
-  color: var(--bronze);
-  font-size: 0.95rem;
+.line-lakonia .card-art {
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(201, 164, 77, 0.35), transparent 65%),
+    linear-gradient(170deg, var(--charcoal-soft), var(--charcoal));
+  color: var(--gold-bright);
+  font-family: var(--serif);
 }
+
+.line-honey .card-art {
+  background: linear-gradient(160deg, #f3d9a4, #e3b45f 70%, #d09c3f);
+  color: var(--amber-deep);
+}
+
+.card.line-crete { border-top: 6px solid var(--olive); }
+.card.line-crete h3 { color: var(--olive-dark); }
+.card.line-lakonia { border-top: 6px solid var(--charcoal); }
+.card.line-lakonia h3 { color: var(--charcoal); }
+.card.line-honey { border-top: 6px solid var(--amber); }
+.card.line-honey h3 { color: var(--amber-deep); }
+
+/* ---------- Product page ---------- */
+.product-head {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  border-bottom: 3px double var(--gold);
+}
+
+.product-head h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.product-head .emblem {
+  font-size: 2.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-meta {
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  font-variant: small-caps;
+}
+
+.product-head.line-crete {
+  background: linear-gradient(180deg, #e9e2c8, var(--parchment));
+}
+.product-head.line-crete h1,
+.product-head.line-crete .emblem { color: var(--olive-dark); }
+.product-head.line-crete .product-meta { color: var(--bronze); }
+
+.product-head.line-lakonia {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201, 164, 77, 0.3), transparent 60%),
+    linear-gradient(180deg, var(--charcoal-soft), var(--charcoal));
+  color: #e8dcc2;
+  border-bottom-color: var(--gold-bright);
+}
+.product-head.line-lakonia h1,
+.product-head.line-lakonia .emblem { color: var(--gold-bright); }
+.product-head.line-lakonia .product-meta { color: #cbb277; }
+
+.product-head.line-honey {
+  background: linear-gradient(180deg, #f3d9a4, var(--parchment));
+}
+.product-head.line-honey h1,
+.product-head.line-honey .emblem { color: var(--amber-deep); }
+.product-head.line-honey .product-meta { color: var(--bronze); }
 
 .story {
   max-width: 42rem;
   margin: 0 auto;
-  padding-bottom: 1.5rem;
+  padding: 1.5rem 0;
+}
+
+.story p:first-child::first-letter {
+  font-size: 2.6em;
+  line-height: 0.8;
+  padding-right: 0.08em;
+  color: var(--bronze);
+  float: left;
 }
 
 .badges {
@@ -191,26 +309,34 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.6rem;
-  padding: 1rem 0 2rem;
+  padding: 0.5rem 0 2rem;
+  margin: 0;
 }
 
 .badges li {
   list-style: none;
   border: 1px solid var(--gold);
-  padding: 0.3rem 0.8rem;
+  padding: 0.35rem 0.9rem;
   font-size: 0.85rem;
-  background: #faf5e9;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  background: var(--parchment-card);
 }
 
+/* ---------- Buttons ---------- */
 .cta,
 button.cta {
   display: inline-block;
   background: var(--olive-dark);
   color: var(--parchment);
-  border: none;
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--olive-dark);
+  outline-offset: 2px;
   font-family: inherit;
   font-size: 1rem;
-  padding: 0.6rem 1.4rem;
+  letter-spacing: 0.08em;
+  font-variant: small-caps;
+  padding: 0.6rem 1.6rem;
   text-decoration: none;
   cursor: pointer;
 }
@@ -219,36 +345,72 @@ button.cta {
   background: var(--olive);
 }
 
+button.cta:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 .center {
   text-align: center;
   padding-bottom: 3rem;
 }
 
-/* Coming soon */
+/* ---------- Coming soon ---------- */
 .mystery {
-  min-height: 50vh;
+  min-height: 55vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 1rem;
-  padding: 3rem 1rem;
+  gap: 1.1rem;
+  padding: 3.5rem 1rem 4rem;
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(201, 164, 77, 0.28), transparent 55%),
+    linear-gradient(180deg, var(--charcoal-soft), var(--charcoal));
+  color: #e8dcc2;
 }
 
 .mystery h1 {
-  color: var(--bronze);
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--gold-bright);
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0;
+}
+
+.mystery p {
+  max-width: 36rem;
+  margin: 0;
 }
 
 .mystery .seal {
-  font-size: 3.5rem;
+  font-size: 4rem;
+  animation: glow 3s ease-in-out infinite;
 }
 
-/* Order form */
+@keyframes glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgba(201, 164, 77, 0.3));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(201, 164, 77, 0.75));
+    transform: scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mystery .seal {
+    animation: none;
+  }
+}
+
+/* ---------- Order form ---------- */
 .order-form {
   max-width: 34rem;
-  margin: 0 auto 3rem;
+  margin: 0 auto 3.5rem;
   display: grid;
   gap: 1rem;
 }
@@ -264,17 +426,24 @@ button.cta {
 .order-form select {
   font-family: inherit;
   font-size: 1rem;
-  padding: 0.5rem;
+  padding: 0.55rem;
   border: 1px solid var(--gold);
-  background: #faf5e9;
+  background: var(--parchment-card);
 }
 
 .order-products {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.6rem;
   border: 1px solid var(--gold);
   padding: 1rem;
-  background: #faf5e9;
+  background: var(--parchment-card);
+}
+
+.order-products legend {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--bronze);
+  padding: 0 0.4rem;
 }
 
 .order-products .row {
@@ -296,12 +465,16 @@ button.cta {
   background: var(--parchment-deep);
 }
 
-/* Footer */
+/* ---------- Footer ---------- */
 .site-footer {
   border-top: 3px double var(--gold);
-  background: var(--parchment-deep);
+  background: linear-gradient(var(--parchment), var(--parchment-deep));
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1rem 1.75rem;
   font-size: 0.9rem;
   color: var(--bronze);
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
 }

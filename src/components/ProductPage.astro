@@ -10,7 +10,6 @@ interface Props {
 
 const { locale, product } = Astro.props;
 const p = prefix(locale);
-const badgeKeys = ['badge.koroneiki', 'badge.handPicked', 'badge.coldPressed', 'badge.natural'] as const;
 ---
 
 <Base
@@ -21,7 +20,11 @@ const badgeKeys = ['badge.koroneiki', 'badge.handPicked', 'badge.coldPressed', '
 >
   <div class={`product-head line-${product.line}`}>
     <div class="container">
+      <div class="emblem" aria-hidden="true">
+        {product.line === 'crete' ? '🫒' : product.line === 'lakonia' ? 'Λ' : '🍯'}
+      </div>
       <h1>{product.name[locale]}</h1>
+      <hr class="rule" />
       <p>{product.subtitle[locale]}</p>
       <p class="product-meta">
         {t(locale, 'product.variety')}: {product.variety[locale]} ·
@@ -34,7 +37,7 @@ const badgeKeys = ['badge.koroneiki', 'badge.handPicked', 'badge.coldPressed', '
       {product.story[locale].map((paragraph) => <p>{paragraph}</p>)}
     </div>
     <ul class="badges">
-      {badgeKeys.map((key) => <li>{t(locale, key)}</li>)}
+      {product.badges[locale].map((badge) => <li>{badge}</li>)}
     </ul>
     <div class="center">
       <a class="cta" href={`${p}/order/?product=${product.slug}`}>

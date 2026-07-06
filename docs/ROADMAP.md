@@ -2,7 +2,7 @@
 
 Status: ⬜ not started · 🔄 in progress · ✅ done
 
-## Phase 1 — Walking skeleton ⬜
+## Phase 1 — Walking skeleton ✅
 **Goal:** the whole site exists end-to-end, runnable locally, in both languages.
 
 Astro project scaffolded; base layout with header, nav, footer, language switch;
@@ -14,7 +14,7 @@ order page (form not wired yet). English at `/`, Greek at `/el/`.
 every page reachable from the nav in both languages; switching language on any page
 lands on that same page in the other language.
 
-## Phase 2 — Content & design ⬜
+## Phase 2 — Content & design 🔄
 **Goal:** the site looks like the tins and reads like the brand.
 
 Heritage visual system (parchment textures, serif display type, per-line palettes:

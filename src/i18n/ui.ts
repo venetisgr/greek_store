@@ -19,10 +19,6 @@ export const ui = {
     'product.variety': 'Variety',
     'product.region': 'Region',
     'product.orderThis': 'Order this product',
-    'badge.koroneiki': '100% single variety',
-    'badge.handPicked': 'Hand picked',
-    'badge.coldPressed': 'Cold pressed within hours',
-    'badge.natural': 'All natural, no additives',
     'comingSoon.title': 'Something new is ripening…',
     'comingSoon.text':
       'A new treasure from the Greek land is on its way. We are not telling yet — but it is worth the wait.',
@@ -56,10 +52,6 @@ export const ui = {
     'product.variety': 'Ποικιλία',
     'product.region': 'Περιοχή',
     'product.orderThis': 'Παραγγείλετε αυτό το προϊόν',
-    'badge.koroneiki': '100% μία ποικιλία',
-    'badge.handPicked': 'Χειροσυλλογή',
-    'badge.coldPressed': 'Ψυχρή έκθλιψη μέσα σε ώρες',
-    'badge.natural': 'Φυσικό, χωρίς πρόσθετα',
     'comingSoon.title': 'Κάτι καινούργιο ωριμάζει…',
     'comingSoon.text':
       'Ένας νέος θησαυρός από την ελληνική γη είναι καθ’ οδόν. Δεν το μαρτυράμε ακόμα — αλλά αξίζει την αναμονή.',

@@ -16,10 +16,12 @@ const p = prefix(locale);
   description={t(locale, 'comingSoon.text')}
   path={`${p}/coming-soon/`}
 >
-  <div class="mystery container">
+  <div class="meander" aria-hidden="true"></div>
+  <div class="mystery">
     <div class="seal" aria-hidden="true">🏺</div>
     <h1>{t(locale, 'comingSoon.title')}</h1>
     <p>{t(locale, 'comingSoon.text')}</p>
     <p><em>{t(locale, 'comingSoon.hint')}</em></p>
   </div>
+  <div class="meander" aria-hidden="true"></div>
 </Base>

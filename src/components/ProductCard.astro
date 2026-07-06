@@ -9,7 +9,7 @@ interface Props {
 
 const { locale, product } = Astro.props;
 const p = prefix(locale);
-const art: Record<Product['line'], string> = { crete: '🫒', lakonia: '🛡️', honey: '🍯' };
+const art: Record<Product['line'], string> = { crete: '🫒', lakonia: 'Λ', honey: '🍯' };
 ---
 
 <article class={`card line-${product.line}`}>

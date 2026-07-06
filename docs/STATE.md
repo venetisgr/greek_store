@@ -1,15 +1,16 @@
 # STATE
 
 ## Now
-Roadmap Phase 1 (walking skeleton) built and verified: 14 routes (7 per language)
-return 200, language switch maps to the same page in the other locale. Independent
-review agent running; awaiting verdict before marking Phase 1 ✅.
+Phase 1 ✅ (independent review passed: 14 routes, no broken links, lang switch
+correct on every page). Phase 2 in progress: heritage design + per-product badges.
 
 ## Next
-1. Fix any defects the Phase 1 review finds; mark Phase 1 ✅
-2. Phase 2: heritage visual design (parchment/olive Crete, bronze Lakonia, amber honey)
-3. Place real tin artwork when user provides image files (see RESOURCES.md #1)
-4. Coming-soon page "exciting" treatment
+1. Per-product badges in product data (review note: honey must not claim "cold pressed")
+2. Heritage visual system: per-line hero palettes (olive/gold Crete, bronze/black
+   Lakonia, amber honey), parchment texture, Greek-key details
+3. Coming-soon "exciting" treatment
+4. Verify (build + screenshots incl. mobile width), review, commit, push
+5. Place real tin artwork when user provides image files (RESOURCES.md #1)
 
 ## Decisions
 <!-- One dated line per decision, newest last. -->
