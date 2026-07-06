@@ -240,6 +240,19 @@ a {
 .card.line-honey { border-top: 6px solid var(--amber); }
 .card.line-honey h3 { color: var(--amber-deep); }
 
+.card.line-mystery { border-top: 6px solid var(--gold); }
+.card.line-mystery h3 { color: var(--bronze); }
+
+.line-mystery .card-art {
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(201, 164, 77, 0.25), transparent 65%),
+    linear-gradient(170deg, var(--charcoal-soft), var(--charcoal));
+}
+
+.line-mystery .veiled {
+  filter: blur(6px) brightness(0.8);
+}
+
 /* ---------- Product page ---------- */
 .product-head {
   text-align: center;
@@ -294,6 +307,39 @@ a {
   max-width: 42rem;
   margin: 0 auto;
   padding: 1.5rem 0;
+}
+
+.motto {
+  font-variant: small-caps;
+  letter-spacing: 0.22em;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.pull-quote {
+  max-width: 36rem;
+  margin: 0.5rem auto 1.5rem;
+  padding: 1.25rem 1.75rem;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.15rem;
+  border-top: 3px double var(--gold);
+  border-bottom: 3px double var(--gold);
+  color: var(--bronze);
+}
+
+.pull-quote.line-lakonia {
+  color: var(--charcoal-soft);
+}
+
+.pull-quote::before {
+  content: '« ';
+  color: var(--gold);
+}
+
+.pull-quote::after {
+  content: ' »';
+  color: var(--gold);
 }
 
 .story p:first-child::first-letter {

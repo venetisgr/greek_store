@@ -26,9 +26,11 @@ const p = prefix(locale);
       <h1>{product.name[locale]}</h1>
       <hr class="rule" />
       <p>{product.subtitle[locale]}</p>
+      <p class="motto">{product.motto[locale]}</p>
       <p class="product-meta">
         {t(locale, 'product.variety')}: {product.variety[locale]} ·
-        {t(locale, 'product.region')}: {product.region[locale]}
+        {t(locale, 'product.region')}: {product.region[locale]} ·
+        {product.size[locale]}
       </p>
     </div>
   </div>
@@ -36,6 +38,9 @@ const p = prefix(locale);
     <div class="story">
       {product.story[locale].map((paragraph) => <p>{paragraph}</p>)}
     </div>
+    <blockquote class={`pull-quote line-${product.line}`}>
+      {product.quote[locale]}
+    </blockquote>
     <ul class="badges">
       {product.badges[locale].map((badge) => <li>{badge}</li>)}
     </ul>

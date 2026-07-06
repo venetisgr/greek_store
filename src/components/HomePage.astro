@@ -30,6 +30,12 @@ const p = prefix(locale);
     <h2 class="section-title">{t(locale, 'nav.products')}</h2>
     <div class="product-grid">
       {products.map((product) => <ProductCard locale={locale} product={product} />)}
+      <article class="card line-mystery">
+        <div class="card-art" aria-hidden="true"><span class="veiled">🏺</span></div>
+        <h3>{t(locale, 'home.mysteryName')}</h3>
+        <p class="card-region">{t(locale, 'home.mysteryTeaser')}</p>
+        <a class="cta" href={`${p}/coming-soon/`}>{t(locale, 'nav.comingSoon')}</a>
+      </article>
     </div>
   </section>
   <div class="center">

@@ -19,6 +19,8 @@ export const ui = {
     'product.variety': 'Variety',
     'product.region': 'Region',
     'product.orderThis': 'Order this product',
+    'home.mysteryName': 'The Fifth Treasure',
+    'home.mysteryTeaser': 'A fifth treasure joins the family soon.',
     'comingSoon.title': 'Something new is ripening…',
     'comingSoon.text':
       'A new treasure from the Greek land is on its way. We are not telling yet — but it is worth the wait.',
@@ -52,6 +54,8 @@ export const ui = {
     'product.variety': 'Ποικιλία',
     'product.region': 'Περιοχή',
     'product.orderThis': 'Παραγγείλετε αυτό το προϊόν',
+    'home.mysteryName': 'Ο Πέμπτος Θησαυρός',
+    'home.mysteryTeaser': 'Ένας πέμπτος θησαυρός έρχεται σύντομα στην οικογένεια.',
     'comingSoon.title': 'Κάτι καινούργιο ωριμάζει…',
     'comingSoon.text':
       'Ένας νέος θησαυρός από την ελληνική γη είναι καθ’ οδόν. Δεν το μαρτυράμε ακόμα — αλλά αξίζει την αναμονή.',
