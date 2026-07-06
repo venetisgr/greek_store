@@ -1,6 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import ProductCard from './ProductCard.astro';
+import Vignette from './Vignette.astro';
+import Emblem from './Emblem.astro';
+import ValueIcon from './ValueIcon.astro';
 import { t, prefix, type Locale } from '../i18n/ui';
 import { products } from '../data/products';
 
@@ -10,6 +13,13 @@ interface Props {
 
 const { locale } = Astro.props;
 const p = prefix(locale);
+
+const values = [
+  { kind: 'hand', key: 'home.value.hand' },
+  { kind: 'press', key: 'home.value.press' },
+  { kind: 'leaf', key: 'home.value.leaf' },
+  { kind: 'tree', key: 'home.value.tree' },
+] as const;
 ---
 
 <Base
@@ -20,25 +30,67 @@ const p = prefix(locale);
 >
   <section class="hero">
     <div class="container">
-      <h1>{t(locale, 'home.heroTitle')}</h1>
-      <hr class="rule" />
-      <p>{t(locale, 'home.heroText')}</p>
+      <div class="hero-arch">
+        <p class="hero-kicker">{t(locale, 'home.kicker')}</p>
+        <div class="hero-seal" aria-hidden="true"><Emblem kind="seal" /></div>
+        <h1>{t(locale, 'home.heroTitle')}</h1>
+        <hr class="rule" />
+        <p class="hero-lede">{t(locale, 'home.heroText')}</p>
+        <div class="hero-actions">
+          <a class="cta" href={`${p}/order/`}>{t(locale, 'home.orderCta')}</a>
+          <a class="cta cta-outline" href={`${p}/#products`}>{t(locale, 'home.exploreCta')}</a>
+        </div>
+      </div>
     </div>
   </section>
-  <div class="meander" aria-hidden="true"></div>
+  <div class="horizon-band" aria-hidden="true">
+    <svg class="horizon" viewBox="0 0 1200 90" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <path
+        d="M0 56 L90 36 L170 50 L260 26 L340 46 L430 20 L520 42 L610 30 L690 44 L780 24 L870 40 L960 32 L1050 46 L1130 38 L1200 44"
+        fill="none"
+        stroke="#a8853b"
+        stroke-width="1.6"
+        opacity="0.6"></path>
+      <path
+        d="M0 64 L120 52 L240 60 L380 46 L520 58 L660 48 L800 58 L940 48 L1080 58 L1200 52"
+        fill="none"
+        stroke="#a8853b"
+        stroke-width="1.2"
+        opacity="0.35"></path>
+      <path d="M0 72 H1200" stroke="#a8853b" stroke-width="1" opacity="0.3"></path>
+      <path d="M0 80 H1200" stroke="#a8853b" stroke-width="0.8" opacity="0.2"></path>
+    </svg>
+  </div>
   <section id="products" class="container">
     <h2 class="section-title">{t(locale, 'nav.products')}</h2>
     <div class="product-grid">
       {products.map((product) => <ProductCard locale={locale} product={product} />)}
       <article class="card line-mystery">
-        <div class="card-art" aria-hidden="true"><span class="veiled">🏺</span></div>
+        <div class="card-art" aria-hidden="true"><Vignette scene="mystery" /></div>
         <h3>{t(locale, 'home.mysteryName')}</h3>
         <p class="card-region">{t(locale, 'home.mysteryTeaser')}</p>
         <a class="cta" href={`${p}/coming-soon/`}>{t(locale, 'nav.comingSoon')}</a>
       </article>
     </div>
   </section>
-  <div class="center">
-    <a class="cta" href={`${p}/order/`}>{t(locale, 'home.orderCta')}</a>
-  </div>
+  <section class="values-section">
+    <div class="container">
+      <h2 class="section-title">{t(locale, 'home.valuesTitle')}</h2>
+      <ul class="values">
+        {values.map((v) => (
+          <li>
+            <ValueIcon kind={v.kind} />
+            <span>{t(locale, v.key)}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <section class="order-band">
+    <div class="container">
+      <p class="band-motto">{t(locale, 'home.bandMotto')}</p>
+      <p class="band-text">{t(locale, 'home.bandText')}</p>
+      <a class="cta cta-gold" href={`${p}/order/`}>{t(locale, 'home.orderCta')}</a>
+    </div>
+  </section>
 </Base>

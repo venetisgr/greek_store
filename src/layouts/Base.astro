@@ -52,5 +52,52 @@ const nav = [
       <p>{t(locale, 'site.tagline')}</p>
       <p>© {t(locale, 'site.name')} — {t(locale, 'footer.rights')}</p>
     </footer>
+    <script>
+      // Motion layer: scroll reveals with stagger + gentle hero parallax.
+      // Everything is skipped under prefers-reduced-motion, and .reveal is
+      // only added from JS so content stays visible when scripts don't run.
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const targets = document.querySelectorAll(
+          '.hero-arch, .card, .section-title, .values li, .order-band .container, .story p, .pull-quote, .badges li'
+        );
+        const perParent = new Map();
+        targets.forEach((el) => {
+          const parent = el.parentElement;
+          const i = perParent.get(parent) ?? 0;
+          perParent.set(parent, i + 1);
+          el.classList.add('reveal');
+          (el as HTMLElement).style.transitionDelay = `${Math.min(i, 6) * 90}ms`;
+        });
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -36px 0px' }
+        );
+        targets.forEach((el) => io.observe(el));
+
+        const seal = document.querySelector<HTMLElement>('.hero-seal');
+        const horizon = document.querySelector<HTMLElement>('.horizon');
+        if (seal || horizon) {
+          let ticking = false;
+          const onScroll = () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+              const y = window.scrollY;
+              if (seal) seal.style.transform = `translateY(${Math.min(y * 0.12, 42)}px)`;
+              if (horizon) horizon.style.transform = `translateY(${Math.min(y * 0.05, 16)}px)`;
+              ticking = false;
+            });
+          };
+          addEventListener('scroll', onScroll, { passive: true });
+        }
+      }
+    </script>
   </body>
 </html>

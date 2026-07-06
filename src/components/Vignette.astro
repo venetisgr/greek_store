@@ -1,0 +1,21 @@
+---
+/**
+ * Layered engraved scene for a product-card header.
+ * Purely decorative: the parent .card-art carries aria-hidden.
+ */
+import { vignetteScene, type VignetteScene } from '../lib/art';
+
+interface Props {
+  scene: VignetteScene;
+}
+
+const { scene } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 400 230"
+  preserveAspectRatio="xMidYMid slice"
+  aria-hidden="true"
+  focusable="false"
+  set:html={vignetteScene(scene)}
+/>

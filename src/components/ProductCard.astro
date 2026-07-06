@@ -1,6 +1,8 @@
 ---
 import { t, prefix, type Locale } from '../i18n/ui';
 import type { Product } from '../data/products';
+import Vignette from './Vignette.astro';
+import type { VignetteScene } from '../lib/art';
 
 interface Props {
   locale: Locale;
@@ -9,16 +11,21 @@ interface Props {
 
 const { locale, product } = Astro.props;
 const p = prefix(locale);
-const art: Record<Product['line'], string> = { crete: '🫒', lakonia: 'Λ', honey: '🍯' };
+
+/** Each product gets its own engraved scene; the Athinaiki oil carries
+ *  the owl of Athena instead of the Spartan helmet. */
+const scene: VignetteScene =
+  product.slug === 'lakonia-athinaiki' ? 'athena' : (product.line as VignetteScene);
 ---
 
 <article class={`card line-${product.line}`}>
   <div class="card-art" aria-hidden="true">
-    {product.image ? <img src={product.image} alt="" style="max-height:100%" /> : art[product.line]}
+    {product.image ? <img src={product.image} alt="" /> : <Vignette scene={scene} />}
   </div>
   <h3>{product.name[locale]}</h3>
   <p class="card-region">
     {product.variety[locale]} · {product.region[locale]}
   </p>
+  <p class="card-motto">{product.motto[locale]}</p>
   <a class="cta" href={`${p}/products/${product.slug}/`}>{t(locale, 'home.viewProduct')}</a>
 </article>

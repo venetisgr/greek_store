@@ -7,6 +7,7 @@
   --olive-dark: #37461f;
   --gold: #a8853b;
   --gold-bright: #c9a44d;
+  --gold-pale: #d9b96a;
   --bronze: #7a5a2e;
   --charcoal: #1d1a14;
   --charcoal-soft: #2b251b;
@@ -26,13 +27,17 @@ body {
   color: var(--ink);
   font-family: var(--serif);
   line-height: 1.65;
-  /* aged parchment: warm base + soft mottling + edge vignette */
+  /* Aged parchment: warm base + soft mottling + edge vignette.
+     No background-attachment:fixed — on long pages it tiled at viewport
+     height and left a faint horizontal band seam. The gradients now span
+     the full document instead. */
   background-color: var(--parchment);
   background-image:
-    radial-gradient(ellipse at 20% 10%, rgba(255, 250, 235, 0.55), transparent 55%),
-    radial-gradient(ellipse at 85% 80%, rgba(160, 125, 60, 0.12), transparent 60%),
-    radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(122, 90, 46, 0.16) 100%);
-  background-attachment: fixed;
+    radial-gradient(ellipse at 20% 0%, rgba(255, 250, 235, 0.55), transparent 45%),
+    radial-gradient(ellipse at 85% 100%, rgba(160, 125, 60, 0.12), transparent 55%),
+    linear-gradient(90deg, rgba(122, 90, 46, 0.1), transparent 12%, transparent 88%, rgba(122, 90, 46, 0.1));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 h1,
@@ -44,6 +49,20 @@ h3 {
 
 a {
   color: var(--olive-dark);
+}
+
+/* Visible keyboard focus, tuned per background further down. */
+:focus-visible {
+  outline: 3px solid var(--bronze);
+  outline-offset: 2px;
+}
+
+.line-lakonia :focus-visible,
+.line-mystery :focus-visible,
+.order-band :focus-visible,
+.mystery :focus-visible,
+.product-head.line-lakonia :focus-visible {
+  outline-color: var(--gold-bright);
 }
 
 .container {
@@ -116,16 +135,57 @@ a {
   padding: 0.15rem 0.6rem;
   font-size: 0.9rem;
   background: var(--parchment-card);
+  transition: background 0.2s ease;
+}
+
+.lang-switch:hover {
+  background: var(--parchment-deep);
 }
 
 /* ---------- Hero & sections ---------- */
 .hero {
-  padding: 3.5rem 0 2.5rem;
+  padding: 3rem 0 0;
   text-align: center;
 }
 
+/* Arched label-plate: an engraved lunette over the family seal. */
+.hero-arch {
+  position: relative;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3rem 2.5rem 2.4rem;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 250, 235, 0.8), transparent 60%),
+    linear-gradient(180deg, #faf3e2, var(--parchment-card) 55%, #efe3c4);
+  border: 1px solid var(--gold);
+  outline: 1px solid rgba(168, 133, 59, 0.45);
+  outline-offset: 5px;
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+  box-shadow: 0 16px 34px rgba(46, 42, 32, 0.16);
+}
+
+.hero-kicker {
+  margin: 0 0 0.8rem;
+  font-variant: small-caps;
+  letter-spacing: 0.28em;
+  font-size: 0.9rem;
+  color: var(--bronze);
+}
+
+.hero-seal {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+}
+
+.hero-seal svg {
+  width: 104px;
+  height: 104px;
+  filter: drop-shadow(0 2px 4px rgba(46, 42, 32, 0.18));
+}
+
 .hero h1 {
-  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-size: clamp(1.8rem, 4.2vw, 2.7rem);
   color: var(--olive-dark);
   margin: 0 0 1rem;
   text-transform: uppercase;
@@ -140,10 +200,30 @@ a {
   border-top: 3px double var(--gold);
 }
 
-.hero p {
-  max-width: 42rem;
+.hero p.hero-lede {
+  max-width: 40rem;
   margin: 0 auto;
   font-size: 1.05rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-top: 1.6rem;
+}
+
+/* Engraved coastline transition below the hero. */
+.horizon-band {
+  margin-top: -1px;
+  padding: 0.5rem 0 0;
+}
+
+.horizon {
+  display: block;
+  width: 100%;
+  height: 74px;
 }
 
 .section-title {
@@ -152,20 +232,26 @@ a {
   text-transform: uppercase;
   color: var(--bronze);
   font-size: 1.05rem;
-  margin: 2.75rem 0 1.75rem;
+  margin: 2.5rem 0 1.75rem;
 }
 
 .section-title::before,
 .section-title::after {
-  content: ' ⸙ ';
-  color: var(--gold);
+  content: '';
+  display: inline-block;
+  width: 2.4rem;
+  height: 0.4em;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid rgba(168, 133, 59, 0.45);
+  vertical-align: middle;
+  margin: 0 0.9rem 0.2em;
 }
 
 /* ---------- Product cards ---------- */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.75rem;
   padding-bottom: 3rem;
 }
 
@@ -174,84 +260,100 @@ a {
   outline: 1px solid rgba(168, 133, 59, 0.4);
   outline-offset: 4px;
   background: var(--parchment-card);
-  padding: 1.35rem;
+  padding: 0 1.15rem 1.3rem;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.45rem;
   text-align: center;
   box-shadow: 0 2px 10px rgba(46, 42, 32, 0.12);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(46, 42, 32, 0.22);
 }
 
 .card h3 {
-  margin: 0;
+  margin: 0.35rem 0 0;
   font-size: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
 .card .card-region {
+  margin: 0;
   font-size: 0.9rem;
   color: var(--bronze);
   font-style: italic;
 }
 
-.card a {
+.card .card-motto {
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 0.82rem;
+  color: var(--olive-dark);
+}
+
+.card .cta {
+  /* flex gap supplies the minimum spacing; auto pushes it to the bottom */
   margin-top: auto;
 }
 
 .card-art {
-  height: 9rem;
+  margin: 0 -1.15rem 0.5rem;
+  border-bottom: 1px solid rgba(168, 133, 59, 0.5);
+  overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  font-size: 3rem;
-  border: 1px solid rgba(168, 133, 59, 0.5);
+  box-shadow: inset 0 -8px 14px -10px rgba(29, 26, 20, 0.45);
 }
 
+.card-art svg,
 .card-art img {
-  max-height: 100%;
-  max-width: 100%;
+  display: block;
+  width: 100%;
+  height: 11.5rem;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  transform-origin: 50% 75%;
+}
+
+.card:hover .card-art svg,
+.card:focus-within .card-art svg {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card-art svg,
+  .cta {
+    transition: none;
+  }
+
+  .card:hover .card-art svg,
+  .card:focus-within .card-art svg {
+    transform: none;
+  }
 }
 
 /* Line identities: Crete = olive on parchment, Lakonia = bronze on night,
    honey = amber on warm gold. */
-.line-crete .card-art {
-  background: linear-gradient(160deg, #e9e2c8, #cfd3ae 70%, #b9c39a);
-  color: var(--olive-dark);
-}
-
-.line-lakonia .card-art {
-  background:
-    radial-gradient(ellipse at 50% 20%, rgba(201, 164, 77, 0.35), transparent 65%),
-    linear-gradient(170deg, var(--charcoal-soft), var(--charcoal));
-  color: var(--gold-bright);
-  font-family: var(--serif);
-}
-
-.line-honey .card-art {
-  background: linear-gradient(160deg, #f3d9a4, #e3b45f 70%, #d09c3f);
-  color: var(--amber-deep);
-}
-
-.card.line-crete { border-top: 6px solid var(--olive); }
+.card.line-crete { border-top: 5px solid var(--olive); }
 .card.line-crete h3 { color: var(--olive-dark); }
-.card.line-lakonia { border-top: 6px solid var(--charcoal); }
+.card.line-lakonia { border-top: 5px solid var(--charcoal); }
 .card.line-lakonia h3 { color: var(--charcoal); }
-.card.line-honey { border-top: 6px solid var(--amber); }
+.card.line-lakonia .card-motto { color: var(--charcoal-soft); }
+.card.line-honey { border-top: 5px solid var(--amber); }
 .card.line-honey h3 { color: var(--amber-deep); }
-
-.card.line-mystery { border-top: 6px solid var(--gold); }
+.card.line-honey .card-motto { color: var(--amber-deep); }
+.card.line-mystery { border-top: 5px solid var(--gold); }
 .card.line-mystery h3 { color: var(--bronze); }
-
-.line-mystery .card-art {
-  background:
-    radial-gradient(ellipse at 50% 40%, rgba(201, 164, 77, 0.25), transparent 65%),
-    linear-gradient(170deg, var(--charcoal-soft), var(--charcoal));
-}
-
-.line-mystery .veiled {
-  filter: blur(6px) brightness(0.8);
-}
 
 /* ---------- Product page ---------- */
 .product-head {
@@ -268,8 +370,15 @@ a {
 }
 
 .product-head .emblem {
-  font-size: 2.6rem;
-  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+}
+
+.product-head .emblem svg {
+  width: 92px;
+  height: 92px;
+  filter: drop-shadow(0 2px 5px rgba(29, 26, 20, 0.25));
 }
 
 .product-meta {
@@ -281,8 +390,7 @@ a {
 .product-head.line-crete {
   background: linear-gradient(180deg, #e9e2c8, var(--parchment));
 }
-.product-head.line-crete h1,
-.product-head.line-crete .emblem { color: var(--olive-dark); }
+.product-head.line-crete h1 { color: var(--olive-dark); }
 .product-head.line-crete .product-meta { color: var(--bronze); }
 
 .product-head.line-lakonia {
@@ -292,15 +400,13 @@ a {
   color: #e8dcc2;
   border-bottom-color: var(--gold-bright);
 }
-.product-head.line-lakonia h1,
-.product-head.line-lakonia .emblem { color: var(--gold-bright); }
+.product-head.line-lakonia h1 { color: var(--gold-bright); }
 .product-head.line-lakonia .product-meta { color: #cbb277; }
 
 .product-head.line-honey {
   background: linear-gradient(180deg, #f3d9a4, var(--parchment));
 }
-.product-head.line-honey h1,
-.product-head.line-honey .emblem { color: var(--amber-deep); }
+.product-head.line-honey h1 { color: var(--amber-deep); }
 .product-head.line-honey .product-meta { color: var(--bronze); }
 
 .story {
@@ -373,11 +479,12 @@ a {
 .cta,
 button.cta {
   display: inline-block;
-  background: var(--olive-dark);
+  background: linear-gradient(180deg, var(--olive), var(--olive-dark));
   color: var(--parchment);
   border: 1px solid var(--gold);
   outline: 1px solid var(--olive-dark);
   outline-offset: 2px;
+  border-radius: 2px;
   font-family: inherit;
   font-size: 1rem;
   letter-spacing: 0.08em;
@@ -385,10 +492,82 @@ button.cta {
   padding: 0.6rem 1.6rem;
   text-decoration: none;
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(46, 42, 32, 0.2);
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
-.cta:hover {
-  background: var(--olive);
+.cta:hover,
+button.cta:hover {
+  background: linear-gradient(180deg, #55693c, var(--olive));
+  box-shadow: 0 5px 12px rgba(46, 42, 32, 0.3);
+  transform: translateY(-1px);
+}
+
+.cta:active,
+button.cta:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(46, 42, 32, 0.25);
+}
+
+.cta:focus-visible {
+  outline: 3px solid var(--bronze);
+  outline-offset: 3px;
+}
+
+/* Per-line card buttons keep each product's identity. */
+.card.line-lakonia .cta,
+.card.line-mystery .cta {
+  background: linear-gradient(180deg, #352e22, var(--charcoal));
+  outline-color: var(--charcoal);
+  color: #ecdfc0;
+}
+
+.card.line-lakonia .cta:hover,
+.card.line-mystery .cta:hover {
+  background: linear-gradient(180deg, #453c2c, var(--charcoal-soft));
+}
+
+.card.line-honey .cta {
+  background: linear-gradient(180deg, #8a5a17, #6f470f);
+  outline-color: #6f470f;
+}
+
+.card.line-honey .cta:hover {
+  background: linear-gradient(180deg, #9c671d, #7d5213);
+}
+
+/* Quiet parchment variant (secondary action). */
+.cta-outline,
+a.cta-outline {
+  background: var(--parchment-card);
+  color: var(--olive-dark);
+  border: 1px solid var(--gold);
+  outline: 1px solid rgba(168, 133, 59, 0.5);
+  box-shadow: none;
+}
+
+.cta-outline:hover,
+a.cta-outline:hover {
+  background: var(--parchment-deep);
+  color: var(--olive-dark);
+}
+
+/* Gold variant for dark bands. */
+.cta-gold,
+a.cta-gold {
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+  color: var(--charcoal);
+  border-color: #e8d49a;
+  outline: 1px solid var(--gold);
+}
+
+.cta-gold:hover,
+a.cta-gold:hover {
+  background: linear-gradient(180deg, #d8b55e, var(--gold-bright));
+  color: var(--charcoal);
 }
 
 button.cta:disabled {
@@ -399,6 +578,71 @@ button.cta:disabled {
 .center {
   text-align: center;
   padding-bottom: 3rem;
+}
+
+/* ---------- Values (back-label icon badges) ---------- */
+.values-section {
+  padding-bottom: 0.5rem;
+}
+
+.values {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.75rem 2.5rem;
+  margin: 0;
+  padding: 0 0 3rem;
+  list-style: none;
+}
+
+.values li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  width: 10.5rem;
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-size: 0.98rem;
+  line-height: 1.3;
+  color: var(--bronze);
+}
+
+.values li span {
+  text-wrap: balance;
+}
+
+.values svg {
+  width: 76px;
+  height: 76px;
+  filter: drop-shadow(0 2px 3px rgba(46, 42, 32, 0.15));
+}
+
+/* ---------- Order band (tin footer band) ---------- */
+.order-band {
+  text-align: center;
+  padding: 2.9rem 0 3.2rem;
+  border-top: 3px double var(--gold);
+  border-bottom: 3px double var(--gold);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201, 164, 77, 0.22), transparent 60%),
+    linear-gradient(180deg, var(--olive-dark), #243012);
+  color: #e9dfc4;
+}
+
+.order-band .band-motto {
+  margin: 0 0 0.4rem;
+  font-variant: small-caps;
+  letter-spacing: 0.32em;
+  font-size: 1.02rem;
+  color: var(--gold-pale);
+}
+
+.order-band .band-text {
+  max-width: 36rem;
+  margin: 0 auto 1.5rem;
+  font-size: 0.98rem;
 }
 
 /* ---------- Coming soon ---------- */
@@ -431,8 +675,13 @@ button.cta:disabled {
 }
 
 .mystery .seal {
-  font-size: 4rem;
   animation: glow 3s ease-in-out infinite;
+}
+
+.mystery .seal svg {
+  display: block;
+  width: 120px;
+  height: 120px;
 }
 
 @keyframes glow {
@@ -523,4 +772,101 @@ button.cta:disabled {
 
 .site-footer p {
   margin: 0.25rem 0;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 40rem) {
+  .hero-arch {
+    padding: 2rem 1.4rem 1.8rem;
+    border-radius: 50% 50% 0 0 / 18% 18% 0 0;
+  }
+
+  .hero-seal svg {
+    width: 78px;
+    height: 78px;
+  }
+
+  .horizon {
+    height: 56px;
+  }
+
+  /* Stacked hero CTAs get equal width. */
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .cta {
+    text-align: center;
+  }
+}
+
+/* ---------- Motion layer (scroll reveals, parallax, shimmer) ----------
+   .reveal is added by JS only, so content stays visible without JS, and
+   the script skips everything under prefers-reduced-motion. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-seal,
+.horizon {
+  will-change: transform;
+}
+
+.cta-gold,
+a.cta-gold {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 250, 230, 0.45) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  animation: shimmer 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0%,
+  55% {
+    transform: translateX(-120%);
+  }
+  75%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .cta-gold::after {
+    animation: none;
+  }
+
+  .card,
+  .card-art svg {
+    transition: none;
+  }
 }

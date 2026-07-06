@@ -1,0 +1,75 @@
+---
+/**
+ * Engraved medallion emblem: double ring with tick marks around a motif.
+ * Used on product-page heads, the hero seal and the coming-soon page.
+ * Decorative only — wrap in an aria-hidden container.
+ */
+import {
+  C,
+  ringTicks,
+  helmetMotif,
+  owlMotif,
+  oliveBranchMotif,
+  hiveMotif,
+  amphoraMotif,
+  oliveTreeMotif,
+  type EmblemKind,
+} from '../lib/art';
+
+interface Props {
+  kind: EmblemKind;
+}
+
+const { kind } = Astro.props;
+
+const motifs: Record<EmblemKind, string> = {
+  olive: oliveBranchMotif,
+  helmet: helmetMotif,
+  owl: owlMotif,
+  hive: hiveMotif,
+  amphora: amphoraMotif,
+  seal: oliveTreeMotif,
+};
+
+/** Scale that fits each motif comfortably inside the r=48 inner ring. */
+const scales: Record<EmblemKind, number> = {
+  olive: 0.78,
+  helmet: 0.62,
+  owl: 0.72,
+  hive: 0.88,
+  amphora: 0.64,
+  seal: 1.05,
+};
+
+/** Nudges so optically-heavy motifs sit centred (profile helmet leans right). */
+const dx: Record<EmblemKind, number> = {
+  olive: 60,
+  helmet: 56,
+  owl: 60,
+  hive: 60,
+  amphora: 60,
+  seal: 60,
+};
+
+const dy: Record<EmblemKind, number> = {
+  olive: 60,
+  helmet: 68,
+  owl: 60,
+  hive: 59,
+  amphora: 63,
+  seal: 57,
+};
+
+const dark = kind === 'helmet' || kind === 'owl' || kind === 'amphora';
+const disc = dark ? '#1d1a14' : C.parchmentCard;
+const ringOuter = dark ? C.goldBright : C.gold;
+const ringInner = dark ? C.gold : C.bronze;
+---
+
+<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+  <circle cx="60" cy="60" r="56" fill={disc} stroke={ringOuter} stroke-width="1.8"></circle>
+  <circle cx="60" cy="60" r="48.5" fill="none" stroke={ringInner} stroke-width="1" opacity="0.75"
+  ></circle>
+  <g set:html={ringTicks(60, 60, 49.5, 55, 32, ringInner, 0.7)} />
+  <g transform={`translate(${dx[kind]} ${dy[kind]}) scale(${scales[kind]})`} set:html={motifs[kind]} />
+</svg>

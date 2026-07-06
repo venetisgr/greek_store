@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import Emblem from './Emblem.astro';
+import type { EmblemKind } from '../lib/art';
 import { t, prefix, type Locale } from '../i18n/ui';
 import type { Product } from '../data/products';
 
@@ -10,6 +12,14 @@ interface Props {
 
 const { locale, product } = Astro.props;
 const p = prefix(locale);
+
+const lineEmblem: Record<Product['line'], EmblemKind> = {
+  crete: 'olive',
+  lakonia: 'helmet',
+  honey: 'hive',
+};
+const emblem: EmblemKind =
+  product.slug === 'lakonia-athinaiki' ? 'owl' : lineEmblem[product.line];
 ---
 
 <Base
@@ -20,9 +30,7 @@ const p = prefix(locale);
 >
   <div class={`product-head line-${product.line}`}>
     <div class="container">
-      <div class="emblem" aria-hidden="true">
-        {product.line === 'crete' ? '🫒' : product.line === 'lakonia' ? 'Λ' : '🍯'}
-      </div>
+      <div class="emblem" aria-hidden="true"><Emblem kind={emblem} /></div>
       <h1>{product.name[locale]}</h1>
       <hr class="rule" />
       <p>{product.subtitle[locale]}</p>
