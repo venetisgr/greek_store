@@ -1,25 +1,20 @@
 # STATE
 
 ## Now
-Phase 2 nearly done. Heritage design shipped and independently reviewed (PASS on
-line identity + mobile; its one defect — duplicated variety on the order page —
-was eliminated by renaming the Athinaiki oil). Latest content round committed:
-"Athena's Gift" rename, regions fixed (Lakonia ×2, honey → Chania), tin mottos +
-pull-quotes on product pages, fifth "mystery" card on the landing grid.
-RUNNING: 'landing-redesign' workflow (wf_e46e805d-43b) — 3 design variants in
-worktrees + 3-lens judge panel — to replace emoji icons with crafted SVG emblems
-and make the landing page sophisticated (user request).
+Phase 2 ✅. Illustrated-heritage redesign (winner of 3-variant judged competition,
+26/30) integrated with judge-flagged fixes (owl/helmet engraving refinements,
+hero CTA order-first, equal-width mobile CTAs, solid horizon lines, balanced
+value labels) and a motion layer (scroll reveals + stagger, hero seal/horizon
+parallax, gold CTA shimmer; all skipped under prefers-reduced-motion, reveals
+added JS-only so no-JS still renders). Athena's Gift carries judged label copy
+(rivalry draft + Chalkioikos temple graft). Honey is thyme/Chania with the
+high-concentration claim. Verified via screenshots EN/EL/mobile.
 
 ## Next
-1. Apply the winning design variant's patch, fix judge-noted flaws, verify
-   (build + screenshots EN/EL/mobile), commit, push, send screenshots to user
-2. USER FEEDBACK to fold into integration: site is "too plain" — push the design
-   richer, extend the winning treatment to PRODUCT pages too (their screenshot
-   was a product page), and make it "more dynamic instead of static": scroll
-   reveals, hero depth/parallax, card hover lift, tasteful gold shimmer —
-   all honoring prefers-reduced-motion
+1. Phase 3: order form relay — BLOCKED on user: destination email + Web3Forms
+   access key (RESOURCES.md #6–7)
 2. Wire real tin artwork when the user commits image files (RESOURCES.md #1)
-3. Then Phase 3: order form relay (needs user's email + Web3Forms key)
+3. Phase 4 prep possible without user: SEO/meta/OG, sitemap, favicon polish
 
 ## Decisions
 <!-- One dated line per decision, newest last. -->
@@ -27,3 +22,5 @@ and make the landing page sophisticated (user request).
 - 2026-07-06: Astro static site on Vercel free tier (user chose Vercel).
 - 2026-07-06: English default at `/`, Greek at `/el/` (user choice).
 - 2026-07-06: Plan approved by user; autonomy line confirmed (stop only for irreversible/scope/user-only questions).
+- 2026-07-06: Athinaiki oil named "Athena's Gift / Το Δώρο της Αθηνάς" (user asked for a fancier name).
+- 2026-07-06: Landing design = illustrated-heritage direction, chosen by 3-lens judge panel (26/30 vs 19, 18).

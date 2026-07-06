@@ -5,6 +5,13 @@
      history already records; update entries rather than adding twins;
      remove entries proven wrong. Check before non-trivial attempts. -->
 
+## Screenshot scroll-reveal pages with reducedMotion:'reduce'
+- What happened: full-page Playwright captures showed below-the-fold content
+  invisible — the IntersectionObserver reveals were mid-transition (opacity 0).
+- Why it mattered: looked like a broken page; it was a capture artifact.
+- Do instead: `page.emulateMedia({ reducedMotion: 'reduce' })` before goto in
+  screenshot scripts (the site skips all motion under that media query).
+
 ## Images pasted in chat never reach the filesystem
 - What happened: the user shared tin-label artwork in chat twice; a disk-wide
   search for recent image files found nothing to place in `public/images/`.

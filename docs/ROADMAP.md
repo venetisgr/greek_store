@@ -14,7 +14,11 @@ order page (form not wired yet). English at `/`, Greek at `/el/`.
 every page reachable from the nav in both languages; switching language on any page
 lands on that same page in the other language.
 
-## Phase 2 — Content & design 🔄
+## Phase 2 — Content & design ✅
+<!-- Done via 3-variant design competition (illustrated-heritage winner) + judged
+     copy competition for Athena's Gift. Real tin artwork placement still pending
+     user-provided files (RESOURCES.md #1). -->
+
 **Goal:** the site looks like the tins and reads like the brand.
 
 Heritage visual system (parchment textures, serif display type, per-line palettes:
