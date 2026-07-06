@@ -1,16 +1,20 @@
 # STATE
 
 ## Now
-Phase 1 ✅ (independent review passed: 14 routes, no broken links, lang switch
-correct on every page). Phase 2 in progress: heritage design + per-product badges.
+Phase 2 nearly done. Heritage design shipped and independently reviewed (PASS on
+line identity + mobile; its one defect — duplicated variety on the order page —
+was eliminated by renaming the Athinaiki oil). Latest content round committed:
+"Athena's Gift" rename, regions fixed (Lakonia ×2, honey → Chania), tin mottos +
+pull-quotes on product pages, fifth "mystery" card on the landing grid.
+RUNNING: 'landing-redesign' workflow (wf_e46e805d-43b) — 3 design variants in
+worktrees + 3-lens judge panel — to replace emoji icons with crafted SVG emblems
+and make the landing page sophisticated (user request).
 
 ## Next
-1. Per-product badges in product data (review note: honey must not claim "cold pressed")
-2. Heritage visual system: per-line hero palettes (olive/gold Crete, bronze/black
-   Lakonia, amber honey), parchment texture, Greek-key details
-3. Coming-soon "exciting" treatment
-4. Verify (build + screenshots incl. mobile width), review, commit, push
-5. Place real tin artwork when user provides image files (RESOURCES.md #1)
+1. Apply the winning design variant's patch, fix judge-noted flaws, verify
+   (build + screenshots EN/EL/mobile), commit, push, send screenshots to user
+2. Wire real tin artwork when the user commits image files (RESOURCES.md #1)
+3. Then Phase 3: order form relay (needs user's email + Web3Forms key)
 
 ## Decisions
 <!-- One dated line per decision, newest last. -->
