@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import { t, prefix, type Locale } from '../i18n/ui';
+import { products } from '../data/products';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const p = prefix(locale);
+---
+
+<Base
+  locale={locale}
+  title={t(locale, 'order.title')}
+  description={t(locale, 'order.intro')}
+  path={`${p}/order/`}
+>
+  <div class="container">
+    <section class="hero">
+      <h1>{t(locale, 'order.title')}</h1>
+      <p>{t(locale, 'order.intro')}</p>
+    </section>
+    <form class="order-form" method="post" action="#">
+      <p class="notice">{t(locale, 'order.notWired')}</p>
+      <fieldset class="order-products">
+        <legend>{t(locale, 'order.product')}</legend>
+        {products.map((product) => (
+          <div class="row">
+            <span>{product.name[locale]} — {product.variety[locale]}</span>
+            <input
+              type="number"
+              min="0"
+              value="0"
+              name={`qty_${product.slug}`}
+              data-product={product.slug}
+              aria-label={`${t(locale, 'order.qty')} — ${product.name[locale]}`}
+            />
+          </div>
+        ))}
+      </fieldset>
+      <label>
+        {t(locale, 'order.name')}
+        <input type="text" name="name" required />
+      </label>
+      <label>
+        {t(locale, 'order.email')}
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        {t(locale, 'order.phone')}
+        <input type="tel" name="phone" />
+      </label>
+      <label>
+        {t(locale, 'order.message')}
+        <textarea name="message" rows="4"></textarea>
+      </label>
+      <button class="cta" type="submit" disabled>{t(locale, 'order.submit')}</button>
+    </form>
+  </div>
+</Base>
+
+<script>
+  // Pre-select the product passed as ?product=<slug> from a product page CTA.
+  const slug = new URLSearchParams(location.search).get('product');
+  if (slug) {
+    const input = document.querySelector<HTMLInputElement>(`input[data-product="${slug}"]`);
+    if (input && input.value === '0') input.value = '1';
+  }
+</script>

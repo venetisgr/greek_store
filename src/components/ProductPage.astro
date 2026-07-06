@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import { t, prefix, type Locale } from '../i18n/ui';
+import type { Product } from '../data/products';
+
+interface Props {
+  locale: Locale;
+  product: Product;
+}
+
+const { locale, product } = Astro.props;
+const p = prefix(locale);
+const badgeKeys = ['badge.koroneiki', 'badge.handPicked', 'badge.coldPressed', 'badge.natural'] as const;
+---
+
+<Base
+  locale={locale}
+  title={product.name[locale]}
+  description={product.subtitle[locale]}
+  path={`${p}/products/${product.slug}/`}
+>
+  <div class={`product-head line-${product.line}`}>
+    <div class="container">
+      <h1>{product.name[locale]}</h1>
+      <p>{product.subtitle[locale]}</p>
+      <p class="product-meta">
+        {t(locale, 'product.variety')}: {product.variety[locale]} ·
+        {t(locale, 'product.region')}: {product.region[locale]}
+      </p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="story">
+      {product.story[locale].map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+    <ul class="badges">
+      {badgeKeys.map((key) => <li>{t(locale, key)}</li>)}
+    </ul>
+    <div class="center">
+      <a class="cta" href={`${p}/order/?product=${product.slug}`}>
+        {t(locale, 'product.orderThis')}
+      </a>
+    </div>
+  </div>
+</Base>
