@@ -15,8 +15,8 @@ Ordered by when work blocks without each.
 2. **Brand name for the site itself** — the tins say "Cretan Legacy" / "Laconian
    Legacy"; the site needs one umbrella name for the header/domain (e.g. "Legacy
    Greek Goods", a family name, or one of the line names). Placeholder until decided.
-3. **Honey details** — variety (thyme? pine? flower?), origin region, jar sizes,
-   and 2–3 sentences of story, or permission to draft copy for your review.
+3. **Honey details** — ✅ variety (thyme, exceptional concentration) and region
+   (Chania) provided 2026-07-06. Still needed: jar sizes.
 4. **Prices & sizes** — per product, or confirm the order form should say
    "price confirmed with your order" at launch.
 5. **Greek copy review** — I will write both languages; a native read-through of
