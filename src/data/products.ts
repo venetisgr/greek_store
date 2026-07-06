@@ -134,12 +134,12 @@ export const products: Product[] = [
     line: 'honey',
     name: { en: 'Greek Honey', el: 'Ελληνικό Μέλι' },
     subtitle: {
-      en: 'Raw honey from the Greek countryside',
-      el: 'Αγνό μέλι από την ελληνική ύπαιθρο',
+      en: 'Raw thyme honey from the Chania countryside',
+      el: 'Αγνό θυμαρίσιο μέλι από την ύπαιθρο των Χανίων',
     },
-    variety: { en: 'To be announced', el: 'Θα ανακοινωθεί' },
+    variety: { en: 'Thyme', el: 'Θυμαρίσιο' },
     region: { en: 'Chania, Crete', el: 'Χανιά, Κρήτη' },
-    motto: { en: 'Raw. Unheated. Unblended.', el: 'Αγνό. Αθέρμαντο. Χωρίς αναμείξεις.' },
+    motto: { en: 'Wild thyme. Raw. Unblended.', el: 'Άγριο θυμάρι. Αγνό. Χωρίς αναμείξεις.' },
     quote: {
       en: 'Made by the bees of Chania; we only keep it safe on its way to your table.',
       el: 'Το φτιάχνουν οι μέλισσες των Χανίων· εμείς απλώς το φυλάμε στον δρόμο για το τραπέζι σας.',
@@ -147,17 +147,19 @@ export const products: Product[] = [
     size: { en: 'Jar sizes to be announced', el: 'Τα μεγέθη βάζων θα ανακοινωθούν' },
     story: {
       en: [
-        'From hives kept among the wild herbs and blossom of the Chania countryside, our honey comes to the jar the way the bees made it: raw, unheated, and unblended.',
-        'Full details of this harvest — variety, region, and jar sizes — are coming soon. Ask us when you order and we will tell you what is in the current batch.',
+        'From hives kept among the wild thyme of the Chania countryside, our honey comes to the jar the way the bees made it: raw, unheated, and unblended.',
+        'Gathered at the height of the thyme flowering, it carries a concentration of thyme far beyond what is usually sold as thyme honey — dense, aromatic, unmistakable from the first spoonful.',
+        'Jar sizes are coming soon. Ask us when you order and we will tell you what is in the current batch.',
       ],
       el: [
-        'Από κυψέλες ανάμεσα στα αγριοβότανα και τους ανθούς της υπαίθρου των Χανίων, το μέλι μας φτάνει στο βάζο όπως το έφτιαξαν οι μέλισσες: αγνό, αθέρμαντο και χωρίς αναμείξεις.',
-        'Οι πλήρεις λεπτομέρειες αυτής της σοδειάς — ποικιλία, περιοχή και μεγέθη βάζων — έρχονται σύντομα. Ρωτήστε μας στην παραγγελία σας και θα σας πούμε τι περιέχει η τρέχουσα παρτίδα.',
+        'Από κυψέλες ανάμεσα στο άγριο θυμάρι της υπαίθρου των Χανίων, το μέλι μας φτάνει στο βάζο όπως το έφτιαξαν οι μέλισσες: αγνό, αθέρμαντο και χωρίς αναμείξεις.',
+        'Τρυγημένο στην κορύφωση της ανθοφορίας του θυμαριού, έχει περιεκτικότητα σε θυμάρι πολύ πάνω από ό,τι συνήθως πωλείται ως θυμαρίσιο μέλι — πυκνό, αρωματικό, αναγνωρίσιμο από την πρώτη κουταλιά.',
+        'Τα μεγέθη βάζων θα ανακοινωθούν σύντομα. Ρωτήστε μας στην παραγγελία σας και θα σας πούμε τι περιέχει η τρέχουσα παρτίδα.',
       ],
     },
     badges: {
-      en: ['Raw and unheated', 'Unblended', 'From family hives', 'No additives'],
-      el: ['Αγνό και αθέρμαντο', 'Χωρίς αναμείξεις', 'Από οικογενειακές κυψέλες', 'Χωρίς πρόσθετα'],
+      en: ['Thyme honey', 'Exceptional thyme concentration', 'Raw and unheated', 'From family hives'],
+      el: ['Θυμαρίσιο μέλι', 'Εξαιρετική περιεκτικότητα σε θυμάρι', 'Αγνό και αθέρμαντο', 'Από οικογενειακές κυψέλες'],
     },
     image: null,
   },
