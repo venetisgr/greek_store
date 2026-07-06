@@ -13,6 +13,11 @@ and make the landing page sophisticated (user request).
 ## Next
 1. Apply the winning design variant's patch, fix judge-noted flaws, verify
    (build + screenshots EN/EL/mobile), commit, push, send screenshots to user
+2. USER FEEDBACK to fold into integration: site is "too plain" — push the design
+   richer, extend the winning treatment to PRODUCT pages too (their screenshot
+   was a product page), and make it "more dynamic instead of static": scroll
+   reveals, hero depth/parallax, card hover lift, tasteful gold shimmer —
+   all honoring prefers-reduced-motion
 2. Wire real tin artwork when the user commits image files (RESOURCES.md #1)
 3. Then Phase 3: order form relay (needs user's email + Web3Forms key)
 
