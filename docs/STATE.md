@@ -1,15 +1,15 @@
 # STATE
 
 ## Now
-Roadmap Phase 1 (walking skeleton): scaffold the Astro site with EN/EL routing and
-all pages rendering with rough content.
+Roadmap Phase 1 (walking skeleton) built and verified: 14 routes (7 per language)
+return 200, language switch maps to the same page in the other locale. Independent
+review agent running; awaiting verdict before marking Phase 1 ✅.
 
 ## Next
-1. Scaffold Astro project (package.json, config, base layout, i18n helper)
-2. Product data module (4 products, both languages)
-3. Pages: landing, 4 product pages, coming-soon, order (form unwired) — EN + EL
-4. Verify: build passes, all routes render in both languages, language switch works
-5. Commit, mark roadmap Phase 1 ✅, seed Phase 2 in Now/Next
+1. Fix any defects the Phase 1 review finds; mark Phase 1 ✅
+2. Phase 2: heritage visual design (parchment/olive Crete, bronze Lakonia, amber honey)
+3. Place real tin artwork when user provides image files (see RESOURCES.md #1)
+4. Coming-soon page "exciting" treatment
 
 ## Decisions
 <!-- One dated line per decision, newest last. -->
