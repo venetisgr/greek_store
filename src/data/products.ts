@@ -44,7 +44,7 @@ export const products: Product[] = [
       en: [
         'On the same island where the Minoans pressed golden oil three thousand years ago — the land of King Minos, the labyrinth beneath Knossos, and the White Mountains standing guard above — our family still works the Koroneiki groves by hand.',
         'Crete’s olive has always shared its people’s character: the stubborn courage that met invader after invader on these mountainsides, and the plain, generous table that made the Cretan diet the world’s byword for long life.',
-        'Every early-harvest bottle carries that inheritance: a fierce green oil, peppery and alive, cold-pressed within hours of picking, exactly as the generations before us did it.',
+        'Every early-harvest bottle carries that inheritance, a fierce green oil, peppery and alive, cold-pressed within hours of picking, exactly as the generations before us did it.',
       ],
       el: [
         'Στο ίδιο νησί όπου οι Μινωίτες έβγαζαν χρυσό λάδι πριν από τρεις χιλιάδες χρόνια — στη γη του βασιλιά Μίνωα, του λαβύρινθου κάτω από την Κνωσό και των Λευκών Ορέων που στέκουν φρουροί από ψηλά — η οικογένειά μας εξακολουθεί να δουλεύει τα λιόφυτα της Κορωνέικης με το χέρι.',
@@ -80,13 +80,13 @@ export const products: Product[] = [
     story: {
       en: [
         'In Laconia, strength is the oldest tradition. This is the land of Sparta, of Leonidas and the Three Hundred, of warriors who answered the demand to lay down their arms with a single defiant phrase: come and take them.',
-        'When Spartan power gave way to Rome, the free towns of the Laconian coast endured; when Byzantium rose, they raised the sea-fortress of Monemvasia on the rock. Through every age, the olive remained.',
+        'When Spartan power gave way to Rome, the free towns of the Laconian coast endured; when Byzantium rose, they raised the sea-fortress of Monemvasia on the rock.',
         'Through every age, the olive remained. On the slopes around Molaoi our family presses the Koroneiki olive, grown on these slopes since antiquity, into an oil as bold and unyielding as the people of this place: robust, peppery, rich in polyphenols, hand-harvested early and milled the same day.',
       ],
       el: [
         'Στη Λακωνία, η δύναμη είναι η αρχαιότερη παράδοση. Αυτή είναι η γη της Σπάρτης, του Λεωνίδα και των Τριακοσίων, των πολεμιστών που στην απαίτηση να καταθέσουν τα όπλα απάντησαν με μια μόνο φράση: μολών λαβέ.',
-        'Όταν η σπαρτιατική δύναμη έδωσε τη θέση της στη Ρώμη, οι ελεύθερες πόλεις της λακωνικής ακτής άντεξαν· όταν υψώθηκε το Βυζάντιο, έχτισαν πάνω στον βράχο τη θαλασσινή καστροπολιτεία της Μονεμβασιάς. Σε κάθε εποχή, η ελιά έμεινε.',
-        'Στις πλαγιές γύρω από τους Μολάους η οικογένειά μας εκθλίβει την Κορωνέικη ελιά, που μεγαλώνει σε αυτά τα χώματα από την αρχαιότητα, σε ένα λάδι τολμηρό και αλύγιστο σαν τους ανθρώπους του τόπου: δυνατό, πιπεράτο, πλούσιο σε πολυφαινόλες, μαζεμένο νωρίς στο χέρι και αλεσμένο την ίδια μέρα.',
+        'Όταν η σπαρτιατική δύναμη έδωσε τη θέση της στη Ρώμη, οι ελεύθερες πόλεις της λακωνικής ακτής άντεξαν· όταν υψώθηκε το Βυζάντιο, έχτισαν πάνω στον βράχο τη θαλασσινή καστροπολιτεία της Μονεμβασιάς.',
+        'Σε κάθε εποχή, η ελιά έμεινε. Στις πλαγιές γύρω από τους Μολάους η οικογένειά μας εκθλίβει την Κορωνέικη ελιά, που μεγαλώνει σε αυτά τα χώματα από την αρχαιότητα, σε ένα λάδι τολμηρό και αλύγιστο σαν τους ανθρώπους του τόπου: δυνατό, πιπεράτο, πλούσιο σε πολυφαινόλες, μαζεμένο νωρίς στο χέρι και αλεσμένο την ίδια μέρα.',
       ],
     },
     badges: {
