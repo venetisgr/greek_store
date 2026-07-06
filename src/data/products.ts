@@ -107,20 +107,20 @@ export const products: Product[] = [
     region: { en: 'Lakonia', el: 'Λακωνία' },
     motto: { en: 'Smooth. Golden. Gently fruity.', el: 'Απαλό. Χρυσαφένιο. Ήπια φρουτώδες.' },
     quote: {
-      en: 'The gentler soul of Laconia — Athena’s own variety, pressed with Spartan care.',
-      el: 'Η πιο απαλή ψυχή της Λακωνίας — η ποικιλία της ίδιας της Αθηνάς, με σπαρτιατική φροντίδα.',
+      en: 'An Athenian gift in every drop, and a Laconian family’s name standing behind it.',
+      el: 'Ένα αθηναϊκό δώρο σε κάθε σταγόνα, και το όνομα μιας λακωνικής οικογένειας από πίσω του.',
     },
     size: { en: '500 ml', el: '500 ml' },
     story: {
       en: [
-        'Beside the bold Koroneiki, Lakonia keeps a gentler secret: the Athinaiki olive, a variety at home on these hillsides for generations. We named this oil for Athena — the goddess whose gift of the olive tree won her a city, and whose tree still feeds ours.',
-        'Where the Koroneiki strikes with pepper and fire, the Athinaiki flows smooth and golden — a soft, rounded oil with a gentle fruitiness that lets vegetables, fish, and fresh bread speak for themselves.',
-        'The same family, the same slopes, the same patience: hand-harvested, cold-pressed the day it is picked, and bottled without compromise.',
+        'Athens and Sparta agreed on nothing — except the olive. When Athena won her city with the first olive tree, a gift judged greater than Poseidon’s spring of salt water, even Sparta bowed to the giver: on their own acropolis the Spartans built her a temple of bronze.',
+        'Time settled the old quarrel. Spartan power passed to Rome, Rome to Byzantium; on the Laconian coast the sea-fortress of Monemvasia rose upon its rock. The rival cities faded into memory; the goddess’s tree stayed, silver-leaved, on the same slopes.',
+        'Through every age, the gift remained. On the slopes around Molaoi our family grows the Athinaiki olive, the variety that bears Athena’s name, and presses it into the other soul of Laconia: an oil smooth, golden, and gently fruity — soft where the Koroneiki is stern. It does not command the table; it lets vegetables, fish, and fresh bread speak. Hand-harvested, cold-pressed the same day.',
       ],
       el: [
-        'Δίπλα στη δυναμική Κορωνέικη, η Λακωνία κρατά ένα πιο απαλό μυστικό: την Αθηναϊκή ελιά, μια ποικιλία ριζωμένη σε αυτές τις πλαγιές εδώ και γενιές. Δώσαμε σε αυτό το λάδι το όνομα της Αθηνάς — της θεάς που με το δώρο της ελιάς κέρδισε μια ολόκληρη πόλη, και που το δέντρο της εξακολουθεί να θρέφει τη δική μας γη.',
-        'Εκεί που η Κορωνέικη χτυπά με πιπέρι και φωτιά, η Αθηναϊκή κυλά απαλή και χρυσαφένια — ένα μαλακό, στρογγυλό λάδι με ήπια φρουτώδη γεύση, που αφήνει τα λαχανικά, το ψάρι και το φρέσκο ψωμί να μιλήσουν από μόνα τους.',
-        'Η ίδια οικογένεια, οι ίδιες πλαγιές, η ίδια υπομονή: χειροσυλλογή, ψυχρή έκθλιψη την ίδια μέρα, εμφιάλωση χωρίς συμβιβασμούς.',
+        'Η Αθήνα και η Σπάρτη δεν συμφώνησαν ποτέ σε τίποτα — εκτός από την ελιά. Όταν η Αθηνά κέρδισε την πόλη της με το πρώτο δέντρο ελιάς, δώρο που κρίθηκε ανώτερο από την αλμυρή πηγή του Ποσειδώνα, ακόμη και η Σπάρτη υποκλίθηκε στη δωρήτρια: στη δική τους ακρόπολη οι Σπαρτιάτες τής έχτισαν χάλκινο ναό.',
+        'Ο χρόνος έκλεισε την παλιά αντιπαλότητα. Η σπαρτιατική δύναμη πέρασε στη Ρώμη, η Ρώμη στο Βυζάντιο· στη λακωνική ακτή υψώθηκε πάνω στον βράχο της η καστροπολιτεία της Μονεμβασιάς. Οι αντίπαλες πόλεις έσβησαν στη μνήμη· το δέντρο της θεάς έμεινε, ασημόφυλλο, στις ίδιες πλαγιές.',
+        'Σε κάθε εποχή, το δώρο έμεινε. Στις πλαγιές γύρω από τους Μολάους η οικογένειά μας καλλιεργεί την Αθηναϊκή ελιά, την ποικιλία που φέρει το όνομα της θεάς, και την εκθλίβει στην άλλη ψυχή της Λακωνίας: ένα λάδι απαλό, χρυσαφένιο, με ήπια φρουτώδη γεύση — μαλακό εκεί που η Κορωνέικη είναι αυστηρή. Δεν κυριαρχεί στο τραπέζι· αφήνει τα λαχανικά, το ψάρι και το φρέσκο ψωμί να μιλήσουν. Χειροσυλλογή, ψυχρή έκθλιψη την ίδια μέρα.',
       ],
     },
     badges: {
