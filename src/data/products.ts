@@ -19,7 +19,7 @@ export interface Product {
   story: Record<Locale, string[]>;
   /** Product-specific claims shown as a badge row. */
   badges: Record<Locale, string[]>;
-  /** Path under /public, or null until real artwork is provided. */
+  /** Tin/label artwork under /public, shown on the product page; null until provided. */
   image: string | null;
 }
 
@@ -56,7 +56,7 @@ export const products: Product[] = [
       en: ['100% Koroneiki olives', 'Hand picked', 'Cold pressed within hours', 'All natural, no additives'],
       el: ['100% ελιές Κορωνέικης', 'Χειροσυλλογή', 'Ψυχρή έκθλιψη μέσα σε ώρες', 'Φυσικό, χωρίς πρόσθετα'],
     },
-    image: null,
+    image: '/images/cretan-legacy-tin.jpg',
   },
   {
     slug: 'lakonia-koroneiki',
@@ -93,7 +93,7 @@ export const products: Product[] = [
       en: ['100% Koroneiki olives', 'Hand picked', 'Cold pressed within hours', 'Rich in polyphenols'],
       el: ['100% ελιές Κορωνέικης', 'Χειροσυλλογή', 'Ψυχρή έκθλιψη μέσα σε ώρες', 'Πλούσιο σε πολυφαινόλες'],
     },
-    image: null,
+    image: '/images/laconian-legacy-tin.jpg',
   },
   {
     slug: 'lakonia-athinaiki',

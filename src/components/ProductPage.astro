@@ -20,6 +20,8 @@ const lineEmblem: Record<Product['line'], EmblemKind> = {
 };
 const emblem: EmblemKind =
   product.slug === 'lakonia-athinaiki' ? 'owl' : lineEmblem[product.line];
+/* The Laconian Koroneiki hero carries the real tin medallion instead of the drawn helmet. */
+const tinMedallion = emblem === 'helmet' ? '/images/spartan-helmet.png' : null;
 ---
 
 <Base
@@ -30,7 +32,9 @@ const emblem: EmblemKind =
 >
   <div class={`product-head line-${product.line}`}>
     <div class="container">
-      <div class="emblem" aria-hidden="true"><Emblem kind={emblem} /></div>
+      <div class="emblem" aria-hidden="true">
+        {tinMedallion ? <img class="emblem-medallion" src={tinMedallion} alt="" /> : <Emblem kind={emblem} />}
+      </div>
       <h1>{product.name[locale]}</h1>
       <hr class="rule" />
       <p>{product.subtitle[locale]}</p>
@@ -49,6 +53,15 @@ const emblem: EmblemKind =
     <blockquote class={`pull-quote line-${product.line}`}>
       {product.quote[locale]}
     </blockquote>
+    {product.image && (
+      <figure class="tin-figure">
+        <img
+          src={product.image}
+          alt={`${product.name[locale]} — ${t(locale, 'product.tinAlt')}`}
+          loading="lazy"
+        />
+      </figure>
+    )}
     <ul class="badges">
       {product.badges[locale].map((badge) => <li>{badge}</li>)}
     </ul>

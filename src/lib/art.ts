@@ -373,10 +373,11 @@ function lakoniaScene(): string {
 ${stars([[38, 30], [74, 52], [120, 24], [300, 36], [344, 58], [368, 26], [262, 20], [160, 40]])}
 ${taygetus}
 <circle cx="200" cy="102" r="64" fill="#191510"/>
+<clipPath id="lak-tin-medallion"><circle cx="200" cy="102" r="62"/></clipPath>
+<image href="/images/spartan-helmet.png" x="138" y="40" width="124" height="124" clip-path="url(#lak-tin-medallion)" preserveAspectRatio="xMidYMid slice"/>
 <circle cx="200" cy="102" r="64" fill="none" stroke="${C.goldBright}" stroke-width="1.6"/>
 <circle cx="200" cy="102" r="56" fill="none" stroke="${C.gold}" stroke-width="1"/>
 ${ringTicks(200, 102, 56.5, 63.5, 36, C.gold, 0.8)}
-<g transform="translate(196 104) scale(0.78)">${helmetMotif}</g>
 ${medallionWreath(200, 102, 73, C.gold)}
 ${meanderBand('lak')}
 ${frame(C.gold)}`;

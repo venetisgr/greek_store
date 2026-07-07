@@ -415,6 +415,44 @@ a {
   padding: 1.5rem 0;
 }
 
+/* Real tin artwork on the product hero and page. */
+.emblem-medallion {
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-bright);
+  box-shadow:
+    0 0 0 5px rgba(201, 164, 77, 0.25),
+    0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.tin-figure {
+  max-width: 52rem;
+  margin: 1.5rem auto 2rem;
+  padding: 0.6rem;
+  background: var(--parchment-card);
+  border: 1px solid var(--gold);
+  outline: 1px solid rgba(168, 133, 59, 0.4);
+  outline-offset: 4px;
+  box-shadow: 0 10px 26px rgba(46, 42, 32, 0.2);
+}
+
+.tin-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Decorative art band on the landing page (Cretan grove panel). */
+.art-banner {
+  height: clamp(240px, 34vw, 400px);
+  background-image: url('/images/crete-landscape.jpg');
+  background-size: cover;
+  background-position: 50% 62%;
+  border-top: 3px double var(--gold);
+  border-bottom: 3px double var(--gold);
+}
+
 .motto {
   font-variant: small-caps;
   letter-spacing: 0.22em;
