@@ -415,6 +415,27 @@ a {
   padding: 1.5rem 0;
 }
 
+/* Product-type seal (oil drop / honey dipper) overlapping the hero emblem. */
+.emblem-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.type-seal {
+  position: absolute;
+  right: -14px;
+  bottom: -6px;
+}
+
+/* Specific enough to beat `.product-head .emblem svg`'s 92px sizing. */
+.type-seal svg,
+.product-head .emblem .type-seal svg {
+  display: block;
+  width: 38px;
+  height: 38px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+}
+
 /* Real tin artwork on the product hero and page. */
 .emblem-medallion {
   width: 118px;

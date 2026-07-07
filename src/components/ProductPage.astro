@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Emblem from './Emblem.astro';
-import type { EmblemKind } from '../lib/art';
+import { typeSeal, type EmblemKind } from '../lib/art';
 import { t, prefix, type Locale } from '../i18n/ui';
 import type { Product } from '../data/products';
 
@@ -33,7 +33,10 @@ const tinMedallion = emblem === 'helmet' ? '/images/spartan-helmet.png' : null;
   <div class={`product-head line-${product.line}`}>
     <div class="container">
       <div class="emblem" aria-hidden="true">
-        {tinMedallion ? <img class="emblem-medallion" src={tinMedallion} alt="" /> : <Emblem kind={emblem} />}
+        <span class="emblem-wrap">
+          {tinMedallion ? <img class="emblem-medallion" src={tinMedallion} alt="" /> : <Emblem kind={emblem} />}
+          <span class="type-seal" set:html={typeSeal(product.line === 'honey' ? 'honey' : 'oil')} />
+        </span>
       </div>
       <h1>{product.name[locale]}</h1>
       <hr class="rule" />

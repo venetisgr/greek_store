@@ -446,6 +446,30 @@ ${sparkle(152, 78, 1)}${sparkle(250, 66, 0.8)}${sparkle(240, 158, 0.7)}
 ${frame(C.gold)}`;
 }
 
+/** Small product-type seals overlapping the product-page emblem:
+ *  a golden oil drop with olive leaves, or a honey dipper with a drip. */
+export function typeSeal(kind: 'oil' | 'honey'): string {
+  const motif =
+    kind === 'oil'
+      ? `<path d="M22 9 C 17 17 13.5 22.5 13.5 27.5 A 8.5 8.5 0 0 0 30.5 27.5 C 30.5 22.5 27 17 22 9 Z" fill="${C.goldBright}" stroke="${C.bronze}" stroke-width="1.3"/>
+<path d="M17.5 27 A 4.5 4.5 0 0 0 21 31.5" fill="none" stroke="#f4e6bd" stroke-width="1.4" stroke-linecap="round"/>
+<ellipse cx="14.5" cy="10.5" rx="4.6" ry="1.7" transform="rotate(-32 14.5 10.5)" fill="${C.olive}"/>
+<ellipse cx="29.5" cy="10.5" rx="4.6" ry="1.7" transform="rotate(32 29.5 10.5)" fill="${C.olive}"/>`
+      : `<path d="M22 7.5 L 22 13" stroke="${C.amberDeep}" stroke-width="2" stroke-linecap="round"/>
+<g fill="${C.amber}" stroke="${C.amberDeep}" stroke-width="1.1">
+<ellipse cx="22" cy="15" rx="6.5" ry="2.1"/>
+<ellipse cx="22" cy="19" rx="8" ry="2.3"/>
+<ellipse cx="22" cy="23.5" rx="6.8" ry="2.2"/>
+<ellipse cx="22" cy="27.5" rx="4.6" ry="1.9"/>
+</g>
+<path d="M22 30 C 20.2 33 19.4 34.6 19.4 36 A 2.6 2.6 0 0 0 24.6 36 C 24.6 34.6 23.8 33 22 30 Z" fill="${C.amber}" stroke="${C.amberDeep}" stroke-width="1"/>`;
+  return `<svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" focusable="false">
+<circle cx="22" cy="22" r="21" fill="${C.parchmentCard}" stroke="${C.gold}" stroke-width="1.6"/>
+<circle cx="22" cy="22" r="17.5" fill="none" stroke="${C.gold}" stroke-width="0.8" opacity="0.55"/>
+${motif}
+</svg>`;
+}
+
 export type VignetteScene = 'crete' | 'lakonia' | 'athena' | 'honey' | 'mystery';
 
 export type EmblemKind = 'olive' | 'helmet' | 'owl' | 'hive' | 'amphora' | 'seal';
