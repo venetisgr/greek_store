@@ -13,8 +13,14 @@ high-concentration claim. Verified via screenshots EN/EL/mobile.
 ## Next
 1. Phase 3: order form relay — BLOCKED on user: destination email + Web3Forms
    access key (RESOURCES.md #6–7)
-2. Wire real tin artwork when the user commits image files (RESOURCES.md #1)
+2. Athena's Gift + honey imagery when user uploads (RESOURCES.md #1)
 3. Phase 4 prep possible without user: SEO/meta/OG, sitemap, favicon polish
+
+<!-- 2026-07-07: real tin artwork placed — tin figures on the two Koroneiki
+     product pages, actual tin helmet cropped into a circular medallion
+     (public/images/spartan-helmet.png) used in the Laconian card vignette and
+     product hero (fixes user's "fix the spartan icon"), Cretan grove panel as
+     landing art banner. Raw 3MB uploads replaced with optimized JPEG/PNG. -->
 
 ## Decisions
 <!-- One dated line per decision, newest last. -->

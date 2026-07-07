@@ -3,15 +3,12 @@
 Ordered by when work blocks without each.
 
 ## Needed during Phase 2 (content & design)
-1. **Product image files** — the tin artworks have been shared in chat twice, but
-   chat images are previews only; the actual files never reach the repo. To place
-   them on the site, commit them to `public/images/` on branch
-   `claude/reload-skills-zsczaf` (e.g. drag-and-drop on GitHub → "Add file →
-   Upload files"), ideally named: `cretan-legacy-front.jpg`, `cretan-legacy-back.jpg`,
-   `laconian-legacy-front.jpg`, `laconian-legacy-back.jpg`, `crete-landscape.jpg`,
-   `crete-map.jpg`. The label text ("quotes") is already transcribed into the
-   product pages; until the files arrive the site uses crafted SVG artwork.
-   Still missing entirely: imagery for **Athena's Gift (Athinaiki)** and **honey**.
+1. **Product image files** — ✅ Cretan tin, Laconian tin, and Crete art panels
+   uploaded 2026-07-07 and placed (optimized copies in `public/images/`; tin
+   figures on product pages, tin helmet medallion, landing art banner;
+   `crete-map.jpg` held in reserve, unused so far).
+   Still missing: imagery for **Athena's Gift (Athinaiki)** and **honey** —
+   upload to `public/` the same way and I'll place them.
 2. **Brand name for the site itself** — the tins say "Cretan Legacy" / "Laconian
    Legacy"; the site needs one umbrella name for the header/domain (e.g. "Legacy
    Greek Goods", a family name, or one of the line names). Placeholder until decided.
